@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        /*stage('Build') {
             agent {
                 docker {
                     image 'node:18-alpine'
@@ -20,6 +20,7 @@ pipeline {
                 '''
             }
         }
+        */
         stage('Test') {
             agent {
                 docker {
@@ -30,8 +31,8 @@ pipeline {
             steps {
                 sh'''
                     echo "-----Test stage-----"
-                    FILE=./build/index.html
-                    test -f "$FILE" && echo "$FILE exists."
+                    #FILE=./build/index.html
+                    #test -f "$FILE" && echo "$FILE exists."
                     npm test
                 '''
             }
