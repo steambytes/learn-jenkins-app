@@ -43,6 +43,7 @@ pipeline {
                 docker {
                     image 'mcp/playwright:latest'
                     reuseNode true
+                    args "--entrypoint=''"
                 }
             }
             steps {
