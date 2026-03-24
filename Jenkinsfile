@@ -23,7 +23,9 @@ pipeline {
         stage('Test') {
             steps {
                 sh'''
-                    echo "Test stage"
+                    echo "-----Test stage-----"
+                    FILE=./build/index.html
+                    test -f "$FILE" && echo "$FILE exists."
                 '''
             }
         }
