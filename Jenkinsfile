@@ -21,11 +21,6 @@ pipeline {
             }
         }
         */
-        stage('Run Test') {
-            parallel {
-
-            }
-        }
         stage('Test') {
             agent {
                 docker {
