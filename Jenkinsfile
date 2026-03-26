@@ -21,9 +21,9 @@ pipeline {
             }
         }
         */
-        stage('Run Test') {
+        stage('Tests') {
             parallel {
-                stage('Test') {
+                stage('Unit tests') {
                     agent {
                         docker {
                             image 'node:18-alpine'
@@ -33,7 +33,7 @@ pipeline {
                     steps {
                         sh'''
                             echo "-----Test stage-----"
-                            #FILE=./build/index.html
+                            FILE=./test-results/junit.xml
                             #test -f "$FILE" && echo "$FILE exists."
                             npm test
                         '''
