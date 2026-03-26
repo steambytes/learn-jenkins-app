@@ -62,7 +62,7 @@ pipeline {
     }
     post {
         always {
-            sh 'ls -al'
+            sh 'ls -al test-results'
             junit 'test-results/junit.xml'
         }
     }
