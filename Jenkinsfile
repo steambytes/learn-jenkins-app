@@ -35,6 +35,7 @@ pipeline {
                             echo "-----Test stage-----"
                             FILE=./test-results/junit.xml
                             test -f "$FILE" && echo "$FILE exists."
+                            ls -al
                             npm test
                         '''
                     }
