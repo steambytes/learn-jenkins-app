@@ -40,11 +40,6 @@ pipeline {
                         '''
                     }
                 }
-                post {
-                    always {
-                        junit 'test-results/junit.xml'
-                    }
-                }
 
                 stage('E2E') {
                     agent {
@@ -65,5 +60,9 @@ pipeline {
             }
         }
     }
-    
+    post {
+        always {
+            junit 'test-results/junit.xml'
+        }
+    }
 }
