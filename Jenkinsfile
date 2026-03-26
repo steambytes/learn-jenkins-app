@@ -62,6 +62,7 @@ pipeline {
     }
     post {
         always {
+            sh 'ls -al'
             junit 'test-results/junit.xml'
         }
     }
