@@ -37,6 +37,7 @@ pipeline {
                             test -f "$FILE" && echo "$FILE exists."
                             ls -al
                             npm test
+                            ls -al
                         '''
                     }
                 }
@@ -50,10 +51,12 @@ pipeline {
                     }
                     steps {
                         sh'''
+                            ls -al
                             npm install serve
                             node_modules/.bin/serve -s build &
                             sleep 10
                             npx playwright test --reporter=html
+                            ls -al
                         '''
                     }
                 }
