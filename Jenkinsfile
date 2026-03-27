@@ -35,9 +35,9 @@ pipeline {
                             echo "-----Test stage-----"
                             FILE=./test-results/junit.xml
                             test -f "$FILE" && echo "$FILE exists."
-                            ls -al
+                            ls -al test-results/
                             npm test
-                            ls -al
+                            ls -al test-results/
                         '''
                     }
                 }
@@ -51,12 +51,12 @@ pipeline {
                     }
                     steps {
                         sh'''
-                            ls -al
+                            ls -al test-results/
                             npm install serve
                             node_modules/.bin/serve -s build &
                             sleep 10
                             npx playwright test --reporter=html
-                            ls -al
+                            ls -al test-results/
                         '''
                     }
                 }
