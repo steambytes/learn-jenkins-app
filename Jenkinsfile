@@ -51,8 +51,10 @@ pipeline {
                 sh'''
                     ls -al test-results/
                     npm install serve
+                    ls -al test-results/
                     node_modules/.bin/serve -s build &
                     sleep 10
+                    ls -al test-results/
                     npx playwright test --reporter=html
                     ls -al test-results/
                 '''
